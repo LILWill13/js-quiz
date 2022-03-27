@@ -1,0 +1,37 @@
+ body {
+    background-color: rgb(255, 255, 255);
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 70px;
+}
+
+ h2 {
+    font-size: 40px;
+}
+
+.first {
+    position: relative;
+    font-size: 30px;
+    line-height: 2;
+    font-weight: bold;
+}
+
+.first li {
+    line-height: 1.5;
+    list-style-type:none ;
+}
+
+button {
+    font-size: 30px;
+    background-color: rgb(248, 177, 44);
+    margin-left: 35px;
+    box-shadow: 10px 10px 20px black ;
+}
+
+button:hover {
+    box-shadow: 10px 10px black ;
+}

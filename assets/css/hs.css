@@ -1,0 +1,60 @@
+header{
+    text-align: center;
+}
+#thanks {
+    font-size: 70px;
+}
+
+#thanks h1{
+    font-size: 60px;
+}
+
+section {
+    text-align: center;
+}
+
+input {
+    font-size: 30px;
+}
+
+#initalsBtn {
+    font-size: 27px;
+}
+
+#leaderboard {
+    text-align: center;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+ol {
+    border: 2px solid black;
+    min-height: 2em;
+    min-width: 30em;
+}
+
+#bottom {
+    padding-top: 20%;
+}
+
+a {
+    position: relative;
+    left: 75%;
+}
+
+#home{
+    font-size: 40px;
+    background-color: orange;
+    border-radius: 10px;
+    box-shadow: 0px 0px 25px;
+}
+
+#home:hover{
+    box-shadow: 0px 0px 0px;
+    cursor: pointer;
+}
+
+ol{
+    font-size: 25px;
+}
