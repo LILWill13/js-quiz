@@ -80,15 +80,22 @@ var h1El = document.querySelector('h1');
 var h2El = document.querySelector('h2');
 var pEl = document.querySelector('p');
 var ulEl = document.querySelector('ul');
+var h3El = document.querySelector('h3');
 var button1 = document.getElementById('button1');
 var button2 = document.getElementById('button2');
 var button3 = document.getElementById('button3');
 var button4 = document.getElementById('button4');
 var nextbtn = document.getElementById('nextbtn');
+var itlsInput = document.getElementById('initals');
+var saveBtn = document.getElementById('saveBtn');
+var textMan = document.getElementById('textMan');
+var finalScore = JSON.parse(localStorage.getItem('newestScore'))
+const highScores= JSON.parse(localStorage.getItem('highScores')) || [];
 var countSeconds = 90;
 var questionNumber = 2;
 var timer = setInterval(count, 1000);
-var score = 1;
+var newScore = 1;
+var list = [ ];
 
 button1.addEventListener('click', questionNum);
 button1.addEventListener('click',  question);
@@ -106,6 +113,8 @@ button4.addEventListener('click', questionNum);
 button4.addEventListener('click',  question);
 button4.addEventListener('click',  wrong);
 
+saveBtn.addEventListener('click', save)
+
 // resposible for now question and answer choices
 function question() {
         h2El.textContent = _questions[0].question
@@ -122,12 +131,12 @@ if(_questions.length > 0 && 'click'){
 }
 
 // resposible for the question number in top left 
-function questionNum() {
+function questionNum(event) {
         if(questionNumber <= 10 && 'click') {
         pEl.textContent = 'Question ' + questionNumber++
         } else {
+                event.preventDefault();
                 next()
-                store()
         }
 };
 
@@ -137,10 +146,8 @@ function count(){
             h1El.textContent = countSeconds + ' seconds';
             countSeconds--
              return 
-        } 
-        if (countSeconds => 0 ){
+        } else if (countSeconds => 0 ){
         h1El.textContent = "Quiz over!!!"
-                store()
                 stop()
         }
 }
@@ -157,9 +164,8 @@ function wrong(){
 }
 
 function right(){
-        let add10 =  11 + score
-        
-         score = add10
+        let add11 =  11 + newScore   
+         newScore = add11
 }
 
 // hides all elemnts in the page except button to leave page 
@@ -168,13 +174,38 @@ function next() {
  h2El.setAttribute('style','display:none')
  pEl.setAttribute('style','display:none')
  ulEl.setAttribute('style','display:none') 
+ textMan.setAttribute('style', 'display: flex; flex-direction: column; text-align: center')
+ h3El.textContent = 'You scored a ' + newScore
+ h3El.setAttribute('style', 'font-size: 90px')
  button1.setAttribute('style','display:none')  
  button2.setAttribute('style','display:none')
  button3.setAttribute('style','display:none') 
  button4.setAttribute('style','display:none') 
  nextbtn.setAttribute('style','font-size: 70px;box-shadow: 0px 0px 20px black;background-color: orange; border: 1.5px solid black')
+ saveBtn.setAttribute('style','font-size: 30px;border-radius: 10%; border: 1.5px solid black; background-color: gray')
+ itlsInput.setAttribute('style','font-size: 30px; border: 1.5px solid black')
+ localStorage.setItem('newestScore', JSON.stringify(newScore))
+
+
 }
 
-function store(){
-      localStorage.setItem('score', score)
+var max = 10;
+
+
+function save(event){
+event.preventDefault();
+ var score = {
+        score: JSON.parse(localStorage.getItem('newestScore')),
+        name: itlsInput.value,
+};
+highScores.push(score);
+highScores.sort((a,b) => b.score - a.score);
+highScores.splice(10);
+localStorage.setItem('highScores', JSON.stringify(highScores));
+itlsInput.setAttribute('style', "background-color:")
+beGone()
+}
+
+function beGone() {
+        saveBtn.setAttribute('style', "background-color:")
 }

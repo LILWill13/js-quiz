@@ -74,7 +74,7 @@ button {
 #next{ 
     position: absolute;
     padding-left: 43%;
-    margin-top: 17%;;
+    margin-top: 20%;;
 }
 
 #nextbtn {
@@ -86,3 +86,24 @@ button {
 #nextbtn:hover {
     cursor: pointer;
 }
+
+#saveDiv {
+    margin-top: 11%;
+    position: absolute;
+    width: 100%;
+    padding-left: 42%;
+}
+
+#saveBtn {
+    font-size: 0px;
+    background-color: white;
+    border: 0;
+}
+
+#initals {
+    font-size: 0px;
+    background-color: white;
+    border: 0;
+ 
+}
+
