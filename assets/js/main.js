@@ -185,8 +185,6 @@ function next() {
  saveBtn.setAttribute('style','font-size: 30px;border-radius: 10%; border: 1.5px solid black; background-color: gray')
  itlsInput.setAttribute('style','font-size: 30px; border: 1.5px solid black')
  localStorage.setItem('newestScore', JSON.stringify(newScore))
-
-
 }
 
 var max = 10;
