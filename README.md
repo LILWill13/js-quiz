@@ -21,3 +21,7 @@ A quiz on the fundamentails of Javascript
 - Score tracker
 
 - Saved scores even if page is left
+
+## Website
+
+https://lilwill13.github.io/js-quiz/
